@@ -5,25 +5,34 @@ package auth.v1;
 import "auth/v1/messages.proto";
 import option "google/api/annotations.proto";
 
+// AuthService authenticates users and manages their tokens.
 service AuthService {
+  // Register creates an account and signs it in, returning a fresh token pair.
   rpc Register(RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
       post: "/v1/auth/register"
       body: "*"
     };
   };
+
+  // Login authenticates by email and password ans starts a new session.
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post: "/v1/auth/login"
       body: "*"
     };
   };
+
+  // Refresh exchanges a refresh token for a new pair.
+  // Both tokens are rotated, the old refresh token is spent.
   rpc Refresh(RefreshRequest) returns (RefreshResponse) {
     option (google.api.http) = {
       post: "/v1/auth/refresh"
       body: "*"
     };
   };
+
+  // Logout revokes the session the access token belongs to.
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
       post: "/v1/auth/logout"

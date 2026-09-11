@@ -4,6 +4,7 @@ package auth.v1;
 
 import "google/protobuf/duration.proto";
 
+// Token is a token value and how long it stays valid.
 message Token {
   string token = 1;
   google.protobuf.Duration expires_in = 2;

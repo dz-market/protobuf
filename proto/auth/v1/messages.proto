@@ -4,35 +4,43 @@ package auth.v1;
 
 import "auth/v1/types.proto";
 
+// RegisterRequest carries the credentials for a new account.
 message RegisterRequest {
   string email = 1;
   string password = 2;
 }
 
+// RegisterResponse returns the token pair for the created account.
 message RegisterResponse {
   Token access = 1;
   Token refresh = 2;
 }
 
+// LoginRequest carries the credentials of an existing account.
 message LoginRequest {
   string email = 1;
   string password = 2;
 }
 
+// LoginResponse returns a fresh token pair and starts a new session.
 message LoginResponse {
   Token access = 1;
   Token refresh = 2;
 }
 
+// RefreshRequest carries the refresh token to exchange for a new pair.
 message RefreshRequest {
   string refresh_token = 1;
 }
 
+// RefreshResponse returns the rotated pair.
 message RefreshResponse {
   Token access = 1;
   Token refresh = 2;
 }
 
+// LogoutRequest revoked the session the access token belongs to.
 message LogoutRequest {}
 
+// LogoutResponse is returned after a successful revocation.
 message LogoutResponse {}
