@@ -1,0 +1,114 @@
+edition = "2024";
+
+package auth.v1;
+
+import "auth/v1/types.proto";
+import option "buf/validate/validate.proto";
+import option "protoc-gen-openapiv2/options/annotations.proto";
+
+// RegisterRequest carries the credentials for a new account.
+message RegisterRequest {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      required: [
+        "email",
+        "password"
+      ]
+    }
+  };
+
+  string email = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.email = true,
+    (buf.validate.field).string.max_len = 254,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Must not be registered yet."
+      example: "\"user@example.com\""
+    }
+  ];
+
+  string password = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.min_len = 8,
+    (buf.validate.field).string.max_len = 128,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "At least 8 characters."
+      format: "password"
+    }
+  ];
+}
+
+// RegisterResponse returns the token pair for the created account.
+message RegisterResponse {
+  Token access = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Short-lived access token."}];
+
+  Token refresh = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Long-lived refresh token."}];
+}
+
+// LoginRequest carries the credentials of an existing account.
+message LoginRequest {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      required: [
+        "email",
+        "password"
+      ]
+    }
+  };
+
+  string email = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.email = true,
+    (buf.validate.field).string.max_len = 254,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Email of an existing account."
+      example: "\"user@example.com\""
+    }
+  ];
+
+  string password = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.min_len = 8,
+    (buf.validate.field).string.max_len = 128,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Password of the account."
+      format: "password"
+    }
+  ];
+}
+
+// LoginResponse returns a fresh token pair and starts a new session.
+message LoginResponse {
+  Token access = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Short-lived access token."}];
+
+  Token refresh = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Long-lived refresh token."}];
+}
+
+// RefreshRequest carries the refresh token to exchange for a new pair.
+message RefreshRequest {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      required: ["refresh_token"]
+    }
+  };
+
+  string refresh_token = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 128,
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Refresh token from the most recent Register, Login or Refresh response. Each token works only once."}
+  ];
+}
+
+// RefreshResponse returns the rotated pair.
+message RefreshResponse {
+  Token access = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Short-lived access token."}];
+
+  Token refresh = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Long-lived refresh token."}];
+}
+
+// LogoutRequest revoked the session the access token belongs to.
+message LogoutRequest {}
+
+// LogoutResponse is returned after a successful revocation.
+message LogoutResponse {}
