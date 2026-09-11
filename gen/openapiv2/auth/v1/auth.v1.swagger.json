@@ -1,0 +1,377 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Auth API",
+    "description": "Authentication and session management.",
+    "version": "1.0",
+    "contact": {
+      "name": "dz-market",
+      "url": "https://github.com/dz-market/proto"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/dz-market/proto/blob/main/LICENSE"
+    }
+  },
+  "tags": [
+    {
+      "name": "AuthService",
+      "description": "Credentials, tokens and sessions."
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/auth/login": {
+      "post": {
+        "summary": "Sign in",
+        "operationId": "AuthService_Login",
+        "responses": {
+          "200": {
+            "description": "Token pair issued, a new session started.",
+            "schema": {
+              "$ref": "#/definitions/v1LoginResponse"
+            }
+          },
+          "400": {
+            "description": "Validation failed.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "401": {
+            "description": "Invalid email or password.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "Internal error.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "LoginRequest carries the credentials of an existing account.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1LoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/v1/auth/logout": {
+      "post": {
+        "summary": "Revoke the current session",
+        "operationId": "AuthService_Logout",
+        "responses": {
+          "200": {
+            "description": "Session revoked.",
+            "schema": {
+              "$ref": "#/definitions/v1LogoutResponse"
+            }
+          },
+          "401": {
+            "description": "Missing, expired or invalid access token.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "Internal error.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "LogoutRequest revoked the session the access token belongs to.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1LogoutRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/auth/refresh": {
+      "post": {
+        "summary": "Exchange a refresh token for a new pair",
+        "operationId": "AuthService_Refresh",
+        "responses": {
+          "200": {
+            "description": "New token pair issued, the old one is spent.",
+            "schema": {
+              "$ref": "#/definitions/v1RefreshResponse"
+            }
+          },
+          "400": {
+            "description": "Validation failed.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "401": {
+            "description": "Refresh token is unknown or expired.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "Internal error.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "RefreshRequest carries the refresh token to exchange for a new pair.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RefreshRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/v1/auth/register": {
+      "post": {
+        "summary": "Register a new account",
+        "operationId": "AuthService_Register",
+        "responses": {
+          "201": {
+            "description": "Account created, token pair issued.",
+            "schema": {
+              "$ref": "#/definitions/v1RegisterResponse"
+            }
+          },
+          "400": {
+            "description": "Validation failed.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "409": {
+            "description": "Email is already registered.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "Internal error.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "RegisterRequest carries the credentials for a new account.",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RegisterRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1LoginRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "user@example.com",
+          "description": "Email of an existing account."
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "Password of the account."
+        }
+      },
+      "description": "LoginRequest carries the credentials of an existing account.",
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "v1LoginResponse": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "$ref": "#/definitions/v1Token",
+          "description": "Short-lived access token."
+        },
+        "refresh": {
+          "$ref": "#/definitions/v1Token",
+          "description": "Long-lived refresh token."
+        }
+      },
+      "description": "LoginResponse returns a fresh token pair and starts a new session."
+    },
+    "v1LogoutRequest": {
+      "type": "object",
+      "description": "LogoutRequest revoked the session the access token belongs to."
+    },
+    "v1LogoutResponse": {
+      "type": "object",
+      "description": "LogoutResponse is returned after a successful revocation."
+    },
+    "v1RefreshRequest": {
+      "type": "object",
+      "properties": {
+        "refreshToken": {
+          "type": "string",
+          "description": "Refresh token from the most recent Register, Login or Refresh response. Each token works only once."
+        }
+      },
+      "description": "RefreshRequest carries the refresh token to exchange for a new pair.",
+      "required": [
+        "refreshToken"
+      ]
+    },
+    "v1RefreshResponse": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "$ref": "#/definitions/v1Token",
+          "description": "Short-lived access token."
+        },
+        "refresh": {
+          "$ref": "#/definitions/v1Token",
+          "description": "Long-lived refresh token."
+        }
+      },
+      "description": "RefreshResponse returns the rotated pair."
+    },
+    "v1RegisterRequest": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "user@example.com",
+          "description": "Must not be registered yet."
+        },
+        "password": {
+          "type": "string",
+          "format": "password",
+          "description": "At least 8 characters."
+        }
+      },
+      "description": "RegisterRequest carries the credentials for a new account.",
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    "v1RegisterResponse": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "$ref": "#/definitions/v1Token",
+          "description": "Short-lived access token."
+        },
+        "refresh": {
+          "$ref": "#/definitions/v1Token",
+          "description": "Long-lived refresh token."
+        }
+      },
+      "description": "RegisterResponse returns the token pair for the created account."
+    },
+    "v1Token": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "The token value."
+        },
+        "expiresIn": {
+          "type": "string",
+          "format": "duration",
+          "description": "Time until the token expires."
+        }
+      },
+      "description": "Token is a token value and how long it stays valid."
+    }
+  },
+  "securityDefinitions": {
+    "bearer": {
+      "type": "apiKey",
+      "description": "Access token as \"Bearer {token}\".",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "externalDocs": {
+    "description": "Contracts and source",
+    "url": "https://github.com/dz-market/proto"
+  }
+}
