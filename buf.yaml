@@ -1,0 +1,21 @@
+version: v2
+
+modules:
+    - path: proto
+    - path: third_party
+
+lint:
+    use:
+        - STANDARD
+        - COMMENTS
+    except:
+        - COMMENT_FIELD
+        - COMMENT_ENUM_VALUE
+    ignore:
+        - third_party
+
+breaking:
+    use:
+        - FILE
+    ignore:
+        - third_party
