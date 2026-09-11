@@ -3,11 +3,21 @@ edition = "2024";
 package auth.v1;
 
 import "auth/v1/types.proto";
+import option "buf/validate/validate.proto";
 
 // RegisterRequest carries the credentials for a new account.
 message RegisterRequest {
-  string email = 1;
-  string password = 2;
+  string email = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.email = true,
+    (buf.validate.field).string.max_len = 254
+  ];
+
+  string password = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.min_len = 8,
+    (buf.validate.field).string.max_len = 128
+  ];
 }
 
 // RegisterResponse returns the token pair for the created account.
@@ -18,8 +28,17 @@ message RegisterResponse {
 
 // LoginRequest carries the credentials of an existing account.
 message LoginRequest {
-  string email = 1;
-  string password = 2;
+  string email = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.email = true,
+    (buf.validate.field).string.max_len = 254
+  ];
+
+  string password = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.min_len = 8,
+    (buf.validate.field).string.max_len = 128
+  ];
 }
 
 // LoginResponse returns a fresh token pair and starts a new session.
@@ -30,7 +49,11 @@ message LoginResponse {
 
 // RefreshRequest carries the refresh token to exchange for a new pair.
 message RefreshRequest {
-  string refresh_token = 1;
+  string refresh_token = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 128
+  ];
 }
 
 // RefreshResponse returns the rotated pair.
