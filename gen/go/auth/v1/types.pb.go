@@ -9,7 +9,6 @@ package authv1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,7 +24,7 @@ const (
 type Token struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Token       *string                `protobuf:"bytes,1,opt,name=token"`
-	xxx_hidden_ExpiresIn   *durationpb.Duration   `protobuf:"bytes,2,opt,name=expires_in,json=expiresIn"`
+	xxx_hidden_ExpiresIn   int32                  `protobuf:"varint,2,opt,name=expires_in,json=expiresIn"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -67,11 +66,11 @@ func (x *Token) GetToken() string {
 	return ""
 }
 
-func (x *Token) GetExpiresIn() *durationpb.Duration {
+func (x *Token) GetExpiresIn() int32 {
 	if x != nil {
 		return x.xxx_hidden_ExpiresIn
 	}
-	return nil
+	return 0
 }
 
 func (x *Token) SetToken(v string) {
@@ -79,8 +78,9 @@ func (x *Token) SetToken(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *Token) SetExpiresIn(v *durationpb.Duration) {
+func (x *Token) SetExpiresIn(v int32) {
 	x.xxx_hidden_ExpiresIn = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
 
 func (x *Token) HasToken() bool {
@@ -94,7 +94,7 @@ func (x *Token) HasExpiresIn() bool {
 	if x == nil {
 		return false
 	}
-	return x.xxx_hidden_ExpiresIn != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *Token) ClearToken() {
@@ -103,14 +103,15 @@ func (x *Token) ClearToken() {
 }
 
 func (x *Token) ClearExpiresIn() {
-	x.xxx_hidden_ExpiresIn = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_ExpiresIn = 0
 }
 
 type Token_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	Token     *string
-	ExpiresIn *durationpb.Duration
+	ExpiresIn *int32
 }
 
 func (b0 Token_builder) Build() *Token {
@@ -121,7 +122,10 @@ func (b0 Token_builder) Build() *Token {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
 		x.xxx_hidden_Token = b.Token
 	}
-	x.xxx_hidden_ExpiresIn = b.ExpiresIn
+	if b.ExpiresIn != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_ExpiresIn = *b.ExpiresIn
+	}
 	return m0
 }
 
@@ -129,26 +133,24 @@ var File_auth_v1_types_proto protoreflect.FileDescriptor
 
 const file_auth_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13auth/v1/types.proto\x12\aauth.v1\x1a\x1egoogle/protobuf/duration.proto\"\x9d\x01\n" +
+	"\x13auth/v1/types.proto\x12\aauth.v1\"z\n" +
 	"\x05Token\x12+\n" +
-	"\x05token\x18\x01 \x01(\tB\x15\x92A\x122\x10The token value.R\x05token\x12g\n" +
+	"\x05token\x18\x01 \x01(\tB\x15\x92A\x122\x10The token value.R\x05token\x12D\n" +
 	"\n" +
-	"expires_in\x18\x02 \x01(\v2\x19.google.protobuf.DurationB-\x92A*2\x1dTime until the token expires.\xa2\x02\bdurationR\texpiresInB\x88\x01\n" +
+	"expires_in\x18\x02 \x01(\x05B%\x92A\"2 Seconds until the token expires.R\texpiresInB\x88\x01\n" +
 	"\vcom.auth.v1B\n" +
 	"TypesProtoP\x01Z0github.com/dz-market/proto/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1b\beditionsp\xe9\az.protoc-gen-openapiv2/options/annotations.proto"
 
 var file_auth_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_auth_v1_types_proto_goTypes = []any{
-	(*Token)(nil),               // 0: auth.v1.Token
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
+	(*Token)(nil), // 0: auth.v1.Token
 }
 var file_auth_v1_types_proto_depIdxs = []int32{
-	1, // 0: auth.v1.Token.expires_in:type_name -> google.protobuf.Duration
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_auth_v1_types_proto_init() }

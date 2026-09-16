@@ -2,15 +2,11 @@ edition = "2024";
 
 package auth.v1;
 
-import "google/protobuf/duration.proto";
 import option "protoc-gen-openapiv2/options/annotations.proto";
 
 // Token is a token value and how long it stays valid.
 message Token {
   string token = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The token value."}];
 
-  google.protobuf.Duration expires_in = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Time until the token expires."
-    format: "duration"
-  }];
+  int32 expires_in = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Seconds until the token expires."}];
 }
