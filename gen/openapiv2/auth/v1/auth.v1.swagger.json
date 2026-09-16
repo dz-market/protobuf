@@ -354,9 +354,9 @@
           "description": "The token value."
         },
         "expiresIn": {
-          "type": "string",
-          "format": "duration",
-          "description": "Time until the token expires."
+          "type": "integer",
+          "format": "int32",
+          "description": "Seconds until the token expires."
         }
       },
       "description": "Token is a token value and how long it stays valid."
