@@ -155,7 +155,7 @@ tasks:
         vars:
             BASELINE: '{{.BASELINE | default "origin/main"}}'
         cmds:
-            - "{{.BUF}} breaking {{.MODULE}} --against .git#ref={{.BASELINE}}"
+            - "{{.BUF}} breaking --against .git#ref={{.BASELINE}}"
 
     verify:
         desc: Ensure formatting, generated code and go.mod all match the sources
