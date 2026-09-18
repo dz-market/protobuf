@@ -706,12 +706,11 @@ const file_auth_v1_messages_proto_rawDesc = "" +
 	"\x13\xd2\x01\x05email\xd2\x01\bpassword\"\xa4\x01\n" +
 	"\x10RegisterResponse\x12F\n" +
 	"\x06access\x18\x01 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12H\n" +
-	"\arefresh\x18\x02 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\xd6\x01\n" +
+	"\arefresh\x18\x02 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\xd4\x01\n" +
 	"\fLoginRequest\x12Y\n" +
 	"\x05email\x18\x01 \x01(\tBC\x92A32\x1dEmail of an existing account.J\x12\"user@example.com\"\xbaH\n" +
-	"\xc8\x01\x01r\x05\x18\xfe\x01`\x01R\x05email\x12Q\n" +
-	"\bpassword\x18\x02 \x01(\tB5\x92A%2\x18Password of the account.\xa2\x02\bpassword\xbaH\n" +
-	"\xc8\x01\x01r\x05\x10\b\x18\x80\x01R\bpassword:\x18\x92A\x15\n" +
+	"\xc8\x01\x01r\x05\x18\xfe\x01`\x01R\x05email\x12O\n" +
+	"\bpassword\x18\x02 \x01(\tB3\x92A%2\x18Password of the account.\xa2\x02\bpassword\xbaH\b\xc8\x01\x01r\x03\x18\x80\x01R\bpassword:\x18\x92A\x15\n" +
 	"\x13\xd2\x01\x05email\xd2\x01\bpassword\"\xa1\x01\n" +
 	"\rLoginResponse\x12F\n" +
 	"\x06access\x18\x01 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12H\n" +
