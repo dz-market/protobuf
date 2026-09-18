@@ -33,7 +33,7 @@ const (
 type AuthServiceClient interface {
 	// Register creates an account and signs it in, returning a fresh token pair.
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
-	// Login authenticates by email and password ans starts a new session.
+	// Login authenticates by email and password and starts a new session.
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	// Refresh exchanges a refresh token for a new pair.
 	// Both tokens are rotated, the old refresh token is spent.
@@ -98,7 +98,7 @@ func (c *authServiceClient) Logout(ctx context.Context, in *LogoutRequest, opts 
 type AuthServiceServer interface {
 	// Register creates an account and signs it in, returning a fresh token pair.
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
-	// Login authenticates by email and password ans starts a new session.
+	// Login authenticates by email and password and starts a new session.
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	// Refresh exchanges a refresh token for a new pair.
 	// Both tokens are rotated, the old refresh token is spent.

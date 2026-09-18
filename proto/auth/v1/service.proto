@@ -92,7 +92,7 @@ service AuthService {
     };
   }
 
-  // Login authenticates by email and password ans starts a new session.
+  // Login authenticates by email and password and starts a new session.
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post: "/v1/auth/login"
