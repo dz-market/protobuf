@@ -8,7 +8,7 @@ managed:
         - path: third_party
     override:
         - file_option: go_package_prefix
-          value: github.com/dz-market/proto/gen/go
+          value: github.com/dz-market/protobuf/gen/go
 
 plugins:
     - local: bin/protoc-gen-go

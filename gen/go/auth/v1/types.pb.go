@@ -137,9 +137,9 @@ const file_auth_v1_types_proto_rawDesc = "" +
 	"\x05Token\x12+\n" +
 	"\x05token\x18\x01 \x01(\tB\x15\x92A\x122\x10The token value.R\x05token\x12D\n" +
 	"\n" +
-	"expires_in\x18\x02 \x01(\x05B%\x92A\"2 Seconds until the token expires.R\texpiresInB\x88\x01\n" +
+	"expires_in\x18\x02 \x01(\x05B%\x92A\"2 Seconds until the token expires.R\texpiresInB\x8b\x01\n" +
 	"\vcom.auth.v1B\n" +
-	"TypesProtoP\x01Z0github.com/dz-market/proto/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1b\beditionsp\xe9\az.protoc-gen-openapiv2/options/annotations.proto"
+	"TypesProtoP\x01Z3github.com/dz-market/protobuf/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1b\beditionsp\xe9\az.protoc-gen-openapiv2/options/annotations.proto"
 
 var file_auth_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_auth_v1_types_proto_goTypes = []any{

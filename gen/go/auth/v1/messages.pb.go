@@ -723,8 +723,8 @@ const file_auth_v1_messages_proto_rawDesc = "" +
 	"\x06access\x18\x01 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12H\n" +
 	"\arefresh\x18\x02 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\x0f\n" +
 	"\rLogoutRequest\"\x10\n" +
-	"\x0eLogoutResponseB\x8b\x01\n" +
-	"\vcom.auth.v1B\rMessagesProtoP\x01Z0github.com/dz-market/proto/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1b\beditionsp\xe9\az\x1bbuf/validate/validate.protoz.protoc-gen-openapiv2/options/annotations.proto"
+	"\x0eLogoutResponseB\x8e\x01\n" +
+	"\vcom.auth.v1B\rMessagesProtoP\x01Z3github.com/dz-market/protobuf/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1b\beditionsp\xe9\az\x1bbuf/validate/validate.protoz.protoc-gen-openapiv2/options/annotations.proto"
 
 var file_auth_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_auth_v1_messages_proto_goTypes = []any{
