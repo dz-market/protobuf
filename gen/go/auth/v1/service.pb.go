@@ -65,17 +65,17 @@ const file_auth_v1_service_proto_rawDesc = "" +
 	"\x14\x1a\x12.google.rpc.Statusb\f\n" +
 	"\n" +
 	"\n" +
-	"\x06bearer\x12\x00\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/logout\x1a&\x92A#\x12!Credentials, tokens and sessions.B\x90\x04\n" +
-	"\vcom.auth.v1B\fServiceProtoP\x01Z0github.com/dz-market/proto/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1\x92A\x82\x03\x12\xa5\x01\n" +
-	"\bAuth API\x12&Authentication and session management.\"/\n" +
-	"\tdz-market\x12\"https://github.com/dz-market/proto*;\n" +
-	"\x03MIT\x124https://github.com/dz-market/proto/blob/main/LICENSE2\x031.0*\x02\x01\x022\x10application/json:\x10application/jsonR0\n" +
+	"\x06bearer\x12\x00\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/logout\x1a&\x92A#\x12!Credentials, tokens and sessions.B\x99\x04\n" +
+	"\vcom.auth.v1B\fServiceProtoP\x01Z0github.com/dz-market/proto/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1\x92A\x8b\x03\x12\xab\x01\n" +
+	"\bAuth API\x12&Authentication and session management.\"2\n" +
+	"\tdz-market\x12%https://github.com/dz-market/protobuf*>\n" +
+	"\x03MIT\x127https://github.com/dz-market/protobuf/blob/main/LICENSE2\x031.0*\x02\x01\x022\x10application/json:\x10application/jsonR0\n" +
 	"\x03500\x12)\n" +
 	"\x0fInternal error.\x12\x16\n" +
 	"\x14\x1a\x12.google.rpc.StatusZB\n" +
 	"@\n" +
-	"\x06bearer\x126\b\x02\x12!Access token as \"Bearer {token}\".\x1a\rAuthorization \x02r:\n" +
-	"\x14Contracts and source\x12\"https://github.com/dz-market/protob\beditionsp\xe9\az\x1cgoogle/api/annotations.protoz.protoc-gen-openapiv2/options/annotations.proto"
+	"\x06bearer\x126\b\x02\x12!Access token as \"Bearer {token}\".\x1a\rAuthorization \x02r=\n" +
+	"\x14Contracts and source\x12%https://github.com/dz-market/protobufb\beditionsp\xe9\az\x1cgoogle/api/annotations.protoz.protoc-gen-openapiv2/options/annotations.proto"
 
 var file_auth_v1_service_proto_goTypes = []any{
 	(*RegisterRequest)(nil),  // 0: auth.v1.RegisterRequest

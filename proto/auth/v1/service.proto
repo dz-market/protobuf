@@ -13,11 +13,11 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
     description: "Authentication and session management."
     contact: {
       name: "dz-market"
-      url: "https://github.com/dz-market/proto"
+      url: "https://github.com/dz-market/protobuf"
     }
     license: {
       name: "MIT"
-      url: "https://github.com/dz-market/proto/blob/main/LICENSE"
+      url: "https://github.com/dz-market/protobuf/blob/main/LICENSE"
     }
   }
   schemes: HTTP
@@ -46,7 +46,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
   external_docs: {
     description: "Contracts and source"
-    url: "https://github.com/dz-market/proto"
+    url: "https://github.com/dz-market/protobuf"
   }
 };
 
