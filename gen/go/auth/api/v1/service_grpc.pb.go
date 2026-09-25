@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.2
 // - protoc             (unknown)
-// source: auth/v1/service.proto
+// source: auth/api/v1/service.proto
 
-package authv1
+package apiv1
 
 import (
 	context "context"
@@ -19,10 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthService_Register_FullMethodName = "/auth.v1.AuthService/Register"
-	AuthService_Login_FullMethodName    = "/auth.v1.AuthService/Login"
-	AuthService_Refresh_FullMethodName  = "/auth.v1.AuthService/Refresh"
-	AuthService_Logout_FullMethodName   = "/auth.v1.AuthService/Logout"
+	AuthService_Register_FullMethodName = "/auth.api.v1.AuthService/Register"
+	AuthService_Login_FullMethodName    = "/auth.api.v1.AuthService/Login"
+	AuthService_Refresh_FullMethodName  = "/auth.api.v1.AuthService/Refresh"
+	AuthService_Logout_FullMethodName   = "/auth.api.v1.AuthService/Logout"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -224,7 +224,7 @@ func _AuthService_Logout_Handler(srv interface{}, ctx context.Context, dec func(
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AuthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "auth.v1.AuthService",
+	ServiceName: "auth.api.v1.AuthService",
 	HandlerType: (*AuthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -245,5 +245,5 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "auth/v1/service.proto",
+	Metadata: "auth/api/v1/service.proto",
 }

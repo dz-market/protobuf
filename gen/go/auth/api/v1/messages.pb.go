@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.12
 // 	protoc        (unknown)
-// source: auth/v1/messages.proto
+// source: auth/api/v1/messages.proto
 
-package authv1
+package apiv1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -33,7 +33,7 @@ type RegisterRequest struct {
 
 func (x *RegisterRequest) Reset() {
 	*x = RegisterRequest{}
-	mi := &file_auth_v1_messages_proto_msgTypes[0]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *RegisterRequest) String() string {
 func (*RegisterRequest) ProtoMessage() {}
 
 func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[0]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -143,7 +143,7 @@ type RegisterResponse struct {
 
 func (x *RegisterResponse) Reset() {
 	*x = RegisterResponse{}
-	mi := &file_auth_v1_messages_proto_msgTypes[1]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -155,7 +155,7 @@ func (x *RegisterResponse) String() string {
 func (*RegisterResponse) ProtoMessage() {}
 
 func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[1]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -239,7 +239,7 @@ type LoginRequest struct {
 
 func (x *LoginRequest) Reset() {
 	*x = LoginRequest{}
-	mi := &file_auth_v1_messages_proto_msgTypes[2]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -251,7 +251,7 @@ func (x *LoginRequest) String() string {
 func (*LoginRequest) ProtoMessage() {}
 
 func (x *LoginRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[2]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -349,7 +349,7 @@ type LoginResponse struct {
 
 func (x *LoginResponse) Reset() {
 	*x = LoginResponse{}
-	mi := &file_auth_v1_messages_proto_msgTypes[3]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -361,7 +361,7 @@ func (x *LoginResponse) String() string {
 func (*LoginResponse) ProtoMessage() {}
 
 func (x *LoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[3]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -444,7 +444,7 @@ type RefreshRequest struct {
 
 func (x *RefreshRequest) Reset() {
 	*x = RefreshRequest{}
-	mi := &file_auth_v1_messages_proto_msgTypes[4]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -456,7 +456,7 @@ func (x *RefreshRequest) String() string {
 func (*RefreshRequest) ProtoMessage() {}
 
 func (x *RefreshRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[4]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -522,7 +522,7 @@ type RefreshResponse struct {
 
 func (x *RefreshResponse) Reset() {
 	*x = RefreshResponse{}
-	mi := &file_auth_v1_messages_proto_msgTypes[5]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -534,7 +534,7 @@ func (x *RefreshResponse) String() string {
 func (*RefreshResponse) ProtoMessage() {}
 
 func (x *RefreshResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[5]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -614,7 +614,7 @@ type LogoutRequest struct {
 
 func (x *LogoutRequest) Reset() {
 	*x = LogoutRequest{}
-	mi := &file_auth_v1_messages_proto_msgTypes[6]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -626,7 +626,7 @@ func (x *LogoutRequest) String() string {
 func (*LogoutRequest) ProtoMessage() {}
 
 func (x *LogoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[6]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -658,7 +658,7 @@ type LogoutResponse struct {
 
 func (x *LogoutResponse) Reset() {
 	*x = LogoutResponse{}
-	mi := &file_auth_v1_messages_proto_msgTypes[7]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -670,7 +670,7 @@ func (x *LogoutResponse) String() string {
 func (*LogoutResponse) ProtoMessage() {}
 
 func (x *LogoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_messages_proto_msgTypes[7]
+	mi := &file_auth_api_v1_messages_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,58 +693,58 @@ func (b0 LogoutResponse_builder) Build() *LogoutResponse {
 	return m0
 }
 
-var File_auth_v1_messages_proto protoreflect.FileDescriptor
+var File_auth_api_v1_messages_proto protoreflect.FileDescriptor
 
-const file_auth_v1_messages_proto_rawDesc = "" +
+const file_auth_api_v1_messages_proto_rawDesc = "" +
 	"\n" +
-	"\x16auth/v1/messages.proto\x12\aauth.v1\x1a\x13auth/v1/types.proto\"\xd5\x01\n" +
+	"\x1aauth/api/v1/messages.proto\x12\vauth.api.v1\x1a\x17auth/api/v1/types.proto\"\xd5\x01\n" +
 	"\x0fRegisterRequest\x12W\n" +
 	"\x05email\x18\x01 \x01(\tBA\x92A12\x1bMust not be registered yet.J\x12\"user@example.com\"\xbaH\n" +
 	"\xc8\x01\x01r\x05\x18\xfe\x01`\x01R\x05email\x12O\n" +
 	"\bpassword\x18\x02 \x01(\tB3\x92A#2\x16At least 8 characters.\xa2\x02\bpassword\xbaH\n" +
 	"\xc8\x01\x01r\x05\x10\b\x18\x80\x01R\bpassword:\x18\x92A\x15\n" +
-	"\x13\xd2\x01\x05email\xd2\x01\bpassword\"\xa4\x01\n" +
-	"\x10RegisterResponse\x12F\n" +
-	"\x06access\x18\x01 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12H\n" +
-	"\arefresh\x18\x02 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\xd4\x01\n" +
+	"\x13\xd2\x01\x05email\xd2\x01\bpassword\"\xac\x01\n" +
+	"\x10RegisterResponse\x12J\n" +
+	"\x06access\x18\x01 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12L\n" +
+	"\arefresh\x18\x02 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\xd4\x01\n" +
 	"\fLoginRequest\x12Y\n" +
 	"\x05email\x18\x01 \x01(\tBC\x92A32\x1dEmail of an existing account.J\x12\"user@example.com\"\xbaH\n" +
 	"\xc8\x01\x01r\x05\x18\xfe\x01`\x01R\x05email\x12O\n" +
 	"\bpassword\x18\x02 \x01(\tB3\x92A%2\x18Password of the account.\xa2\x02\bpassword\xbaH\b\xc8\x01\x01r\x03\x18\x80\x01R\bpassword:\x18\x92A\x15\n" +
-	"\x13\xd2\x01\x05email\xd2\x01\bpassword\"\xa1\x01\n" +
-	"\rLoginResponse\x12F\n" +
-	"\x06access\x18\x01 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12H\n" +
-	"\arefresh\x18\x02 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\xc4\x01\n" +
+	"\x13\xd2\x01\x05email\xd2\x01\bpassword\"\xa9\x01\n" +
+	"\rLoginResponse\x12J\n" +
+	"\x06access\x18\x01 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12L\n" +
+	"\arefresh\x18\x02 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\xc4\x01\n" +
 	"\x0eRefreshRequest\x12\x9a\x01\n" +
 	"\rrefresh_token\x18\x01 \x01(\tBu\x92Ae2cRefresh token from the most recent Register, Login or Refresh response. Each token works only once.\xbaH\n" +
 	"\xc8\x01\x01r\x05\x10\x01\x18\x80\x01R\frefreshToken:\x15\x92A\x12\n" +
-	"\x10\xd2\x01\rrefresh_token\"\xa3\x01\n" +
-	"\x0fRefreshResponse\x12F\n" +
-	"\x06access\x18\x01 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12H\n" +
-	"\arefresh\x18\x02 \x01(\v2\x0e.auth.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\x0f\n" +
+	"\x10\xd2\x01\rrefresh_token\"\xab\x01\n" +
+	"\x0fRefreshResponse\x12J\n" +
+	"\x06access\x18\x01 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12L\n" +
+	"\arefresh\x18\x02 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\x0f\n" +
 	"\rLogoutRequest\"\x10\n" +
-	"\x0eLogoutResponseB\x8e\x01\n" +
-	"\vcom.auth.v1B\rMessagesProtoP\x01Z3github.com/dz-market/protobuf/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1b\beditionsp\xe9\az\x1bbuf/validate/validate.protoz.protoc-gen-openapiv2/options/annotations.proto"
+	"\x0eLogoutResponseB\xa6\x01\n" +
+	"\x0fcom.auth.api.v1B\rMessagesProtoP\x01Z6github.com/dz-market/protobuf/gen/go/auth/api/v1;apiv1\xa2\x02\x03AAX\xaa\x02\vAuth.Api.V1\xca\x02\vAuth\\Api\\V1\xe2\x02\x17Auth\\Api\\V1\\GPBMetadata\xea\x02\rAuth::Api::V1b\beditionsp\xe9\az\x1bbuf/validate/validate.protoz.protoc-gen-openapiv2/options/annotations.proto"
 
-var file_auth_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_auth_v1_messages_proto_goTypes = []any{
-	(*RegisterRequest)(nil),  // 0: auth.v1.RegisterRequest
-	(*RegisterResponse)(nil), // 1: auth.v1.RegisterResponse
-	(*LoginRequest)(nil),     // 2: auth.v1.LoginRequest
-	(*LoginResponse)(nil),    // 3: auth.v1.LoginResponse
-	(*RefreshRequest)(nil),   // 4: auth.v1.RefreshRequest
-	(*RefreshResponse)(nil),  // 5: auth.v1.RefreshResponse
-	(*LogoutRequest)(nil),    // 6: auth.v1.LogoutRequest
-	(*LogoutResponse)(nil),   // 7: auth.v1.LogoutResponse
-	(*Token)(nil),            // 8: auth.v1.Token
+var file_auth_api_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_auth_api_v1_messages_proto_goTypes = []any{
+	(*RegisterRequest)(nil),  // 0: auth.api.v1.RegisterRequest
+	(*RegisterResponse)(nil), // 1: auth.api.v1.RegisterResponse
+	(*LoginRequest)(nil),     // 2: auth.api.v1.LoginRequest
+	(*LoginResponse)(nil),    // 3: auth.api.v1.LoginResponse
+	(*RefreshRequest)(nil),   // 4: auth.api.v1.RefreshRequest
+	(*RefreshResponse)(nil),  // 5: auth.api.v1.RefreshResponse
+	(*LogoutRequest)(nil),    // 6: auth.api.v1.LogoutRequest
+	(*LogoutResponse)(nil),   // 7: auth.api.v1.LogoutResponse
+	(*Token)(nil),            // 8: auth.api.v1.Token
 }
-var file_auth_v1_messages_proto_depIdxs = []int32{
-	8, // 0: auth.v1.RegisterResponse.access:type_name -> auth.v1.Token
-	8, // 1: auth.v1.RegisterResponse.refresh:type_name -> auth.v1.Token
-	8, // 2: auth.v1.LoginResponse.access:type_name -> auth.v1.Token
-	8, // 3: auth.v1.LoginResponse.refresh:type_name -> auth.v1.Token
-	8, // 4: auth.v1.RefreshResponse.access:type_name -> auth.v1.Token
-	8, // 5: auth.v1.RefreshResponse.refresh:type_name -> auth.v1.Token
+var file_auth_api_v1_messages_proto_depIdxs = []int32{
+	8, // 0: auth.api.v1.RegisterResponse.access:type_name -> auth.api.v1.Token
+	8, // 1: auth.api.v1.RegisterResponse.refresh:type_name -> auth.api.v1.Token
+	8, // 2: auth.api.v1.LoginResponse.access:type_name -> auth.api.v1.Token
+	8, // 3: auth.api.v1.LoginResponse.refresh:type_name -> auth.api.v1.Token
+	8, // 4: auth.api.v1.RefreshResponse.access:type_name -> auth.api.v1.Token
+	8, // 5: auth.api.v1.RefreshResponse.refresh:type_name -> auth.api.v1.Token
 	6, // [6:6] is the sub-list for method output_type
 	6, // [6:6] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
@@ -752,27 +752,27 @@ var file_auth_v1_messages_proto_depIdxs = []int32{
 	0, // [0:6] is the sub-list for field type_name
 }
 
-func init() { file_auth_v1_messages_proto_init() }
-func file_auth_v1_messages_proto_init() {
-	if File_auth_v1_messages_proto != nil {
+func init() { file_auth_api_v1_messages_proto_init() }
+func file_auth_api_v1_messages_proto_init() {
+	if File_auth_api_v1_messages_proto != nil {
 		return
 	}
-	file_auth_v1_types_proto_init()
+	file_auth_api_v1_types_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_auth_v1_messages_proto_rawDesc), len(file_auth_v1_messages_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_auth_api_v1_messages_proto_rawDesc), len(file_auth_api_v1_messages_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_auth_v1_messages_proto_goTypes,
-		DependencyIndexes: file_auth_v1_messages_proto_depIdxs,
-		MessageInfos:      file_auth_v1_messages_proto_msgTypes,
+		GoTypes:           file_auth_api_v1_messages_proto_goTypes,
+		DependencyIndexes: file_auth_api_v1_messages_proto_depIdxs,
+		MessageInfos:      file_auth_api_v1_messages_proto_msgTypes,
 	}.Build()
-	File_auth_v1_messages_proto = out.File
-	file_auth_v1_messages_proto_goTypes = nil
-	file_auth_v1_messages_proto_depIdxs = nil
+	File_auth_api_v1_messages_proto = out.File
+	file_auth_api_v1_messages_proto_goTypes = nil
+	file_auth_api_v1_messages_proto_depIdxs = nil
 }

@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.12
 // 	protoc        (unknown)
-// source: auth/v1/types.proto
+// source: auth/api/v1/types.proto
 
-package authv1
+package apiv1
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -33,7 +33,7 @@ type Token struct {
 
 func (x *Token) Reset() {
 	*x = Token{}
-	mi := &file_auth_v1_types_proto_msgTypes[0]
+	mi := &file_auth_api_v1_types_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *Token) String() string {
 func (*Token) ProtoMessage() {}
 
 func (x *Token) ProtoReflect() protoreflect.Message {
-	mi := &file_auth_v1_types_proto_msgTypes[0]
+	mi := &file_auth_api_v1_types_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -129,23 +129,23 @@ func (b0 Token_builder) Build() *Token {
 	return m0
 }
 
-var File_auth_v1_types_proto protoreflect.FileDescriptor
+var File_auth_api_v1_types_proto protoreflect.FileDescriptor
 
-const file_auth_v1_types_proto_rawDesc = "" +
+const file_auth_api_v1_types_proto_rawDesc = "" +
 	"\n" +
-	"\x13auth/v1/types.proto\x12\aauth.v1\"z\n" +
+	"\x17auth/api/v1/types.proto\x12\vauth.api.v1\"z\n" +
 	"\x05Token\x12+\n" +
 	"\x05token\x18\x01 \x01(\tB\x15\x92A\x122\x10The token value.R\x05token\x12D\n" +
 	"\n" +
-	"expires_in\x18\x02 \x01(\x05B%\x92A\"2 Seconds until the token expires.R\texpiresInB\x8b\x01\n" +
-	"\vcom.auth.v1B\n" +
-	"TypesProtoP\x01Z3github.com/dz-market/protobuf/gen/go/auth/v1;authv1\xa2\x02\x03AXX\xaa\x02\aAuth.V1\xca\x02\aAuth\\V1\xe2\x02\x13Auth\\V1\\GPBMetadata\xea\x02\bAuth::V1b\beditionsp\xe9\az.protoc-gen-openapiv2/options/annotations.proto"
+	"expires_in\x18\x02 \x01(\x05B%\x92A\"2 Seconds until the token expires.R\texpiresInB\xa3\x01\n" +
+	"\x0fcom.auth.api.v1B\n" +
+	"TypesProtoP\x01Z6github.com/dz-market/protobuf/gen/go/auth/api/v1;apiv1\xa2\x02\x03AAX\xaa\x02\vAuth.Api.V1\xca\x02\vAuth\\Api\\V1\xe2\x02\x17Auth\\Api\\V1\\GPBMetadata\xea\x02\rAuth::Api::V1b\beditionsp\xe9\az.protoc-gen-openapiv2/options/annotations.proto"
 
-var file_auth_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_auth_v1_types_proto_goTypes = []any{
-	(*Token)(nil), // 0: auth.v1.Token
+var file_auth_api_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_auth_api_v1_types_proto_goTypes = []any{
+	(*Token)(nil), // 0: auth.api.v1.Token
 }
-var file_auth_v1_types_proto_depIdxs = []int32{
+var file_auth_api_v1_types_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -153,26 +153,26 @@ var file_auth_v1_types_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_auth_v1_types_proto_init() }
-func file_auth_v1_types_proto_init() {
-	if File_auth_v1_types_proto != nil {
+func init() { file_auth_api_v1_types_proto_init() }
+func file_auth_api_v1_types_proto_init() {
+	if File_auth_api_v1_types_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_auth_v1_types_proto_rawDesc), len(file_auth_v1_types_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_auth_api_v1_types_proto_rawDesc), len(file_auth_api_v1_types_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_auth_v1_types_proto_goTypes,
-		DependencyIndexes: file_auth_v1_types_proto_depIdxs,
-		MessageInfos:      file_auth_v1_types_proto_msgTypes,
+		GoTypes:           file_auth_api_v1_types_proto_goTypes,
+		DependencyIndexes: file_auth_api_v1_types_proto_depIdxs,
+		MessageInfos:      file_auth_api_v1_types_proto_msgTypes,
 	}.Build()
-	File_auth_v1_types_proto = out.File
-	file_auth_v1_types_proto_goTypes = nil
-	file_auth_v1_types_proto_depIdxs = nil
+	File_auth_api_v1_types_proto = out.File
+	file_auth_api_v1_types_proto_goTypes = nil
+	file_auth_api_v1_types_proto_depIdxs = nil
 }
