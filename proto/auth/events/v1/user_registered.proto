@@ -1,0 +1,12 @@
+edition = "2024";
+
+package auth.events.v1;
+
+import "google/protobuf/timestamp.proto";
+
+// UserRegistered is published by svc-auth once an account is created.
+message UserRegistered {
+  string event_id = 1;
+  string user_id = 2;
+  google.protobuf.Timestamp registered_at = 3;
+}
