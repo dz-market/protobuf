@@ -1,0 +1,11 @@
+edition = "2024";
+
+package user.api.v1;
+
+import "user/api/v1/types.proto";
+
+message GetMeRequest{}
+
+message GetMeResponse{
+  Profile profile = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2024";
+
+package user.api.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message Profile {
+  string user_id = 1;
+  google.protobuf.Timestamp created_at = 2;
+}
