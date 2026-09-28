@@ -50,9 +50,11 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
+// ProfileService manages user profiles.
 service ProfileService {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {description: "Profiles of registered users."};
 
+  // GetMe returns the profile of the authenticated caller.
   rpc GetMe(GetMeRequest) returns (GetMeResponse) {
     option (google.api.http) = {get: "/v1/profile"};
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
