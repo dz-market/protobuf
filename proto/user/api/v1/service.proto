@@ -1,0 +1,9 @@
+edition = "2024";
+
+package user.api.v1;
+
+import "user/api/v1/messages.proto";
+
+service ProfileService {
+  rpc GetMe(GetMeRequest) returns (GetMeResponse);
+}
