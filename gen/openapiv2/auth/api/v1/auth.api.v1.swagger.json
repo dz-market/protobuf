@@ -38,7 +38,7 @@
           "200": {
             "description": "Token pair issued, a new session started.",
             "schema": {
-              "$ref": ".auth.v1.LoginResponse"
+              "$ref": "#/definitions/v1LoginResponse"
             }
           },
           "400": {
@@ -84,7 +84,7 @@
           "200": {
             "description": "Session revoked.",
             "schema": {
-              "$ref": ".auth.v1.LogoutResponse"
+              "$ref": "#/definitions/v1LogoutResponse"
             }
           },
           "401": {
@@ -129,7 +129,7 @@
           "200": {
             "description": "New token pair issued, the old one is spent.",
             "schema": {
-              "$ref": ".auth.v1.RefreshResponse"
+              "$ref": "#/definitions/v1RefreshResponse"
             }
           },
           "400": {
@@ -175,7 +175,7 @@
           "201": {
             "description": "Account created, token pair issued.",
             "schema": {
-              "$ref": ".auth.v1.RegisterResponse"
+              "$ref": "#/definitions/v1RegisterResponse"
             }
           },
           "400": {

@@ -24,43 +24,43 @@ var File_auth_api_v1_service_proto protoreflect.FileDescriptor
 
 const file_auth_api_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x19auth/api/v1/service.proto\x12\vauth.api.v1\x1a\x1aauth/api/v1/messages.proto2\x9d\n" +
+	"\x19auth/api/v1/service.proto\x12\vauth.api.v1\x1a\x1aauth/api/v1/messages.proto2\xad\n" +
 	"\n" +
-	"\vAuthService\x12\xc3\x02\n" +
-	"\bRegister\x12\x1c.auth.api.v1.RegisterRequest\x1a\x1d.auth.api.v1.RegisterResponse\"\xf9\x01\x92A\xd9\x01\x12\x16Register a new accountJK\n" +
-	"\x03201\x12D\n" +
-	"#Account created, token pair issued.\x12\x1d\n" +
-	"\x1b\x1a\x19.auth.v1.RegisterResponseJ3\n" +
+	"\vAuthService\x12\xc7\x02\n" +
+	"\bRegister\x12\x1c.auth.api.v1.RegisterRequest\x1a\x1d.auth.api.v1.RegisterResponse\"\xfd\x01\x92A\xdd\x01\x12\x16Register a new accountJO\n" +
+	"\x03201\x12H\n" +
+	"#Account created, token pair issued.\x12!\n" +
+	"\x1f\x1a\x1d.auth.api.v1.RegisterResponseJ3\n" +
 	"\x03400\x12,\n" +
 	"\x12Validation failed.\x12\x16\n" +
 	"\x14\x1a\x12.google.rpc.StatusJ=\n" +
 	"\x03409\x126\n" +
 	"\x1cEmail is already registered.\x12\x16\n" +
-	"\x14\x1a\x12.google.rpc.Status\x82\xd3\xe4\x93\x02\x16:\x01*\"\x11/v1/auth/register\x12\xa9\x02\n" +
-	"\x05Login\x12\x19.auth.api.v1.LoginRequest\x1a\x1a.auth.api.v1.LoginResponse\"\xe8\x01\x92A\xcb\x01\x12\aSign inJN\n" +
-	"\x03200\x12G\n" +
-	")Token pair issued, a new session started.\x12\x1a\n" +
-	"\x18\x1a\x16.auth.v1.LoginResponseJ3\n" +
+	"\x14\x1a\x12.google.rpc.Status\x82\xd3\xe4\x93\x02\x16:\x01*\"\x11/v1/auth/register\x12\xad\x02\n" +
+	"\x05Login\x12\x19.auth.api.v1.LoginRequest\x1a\x1a.auth.api.v1.LoginResponse\"\xec\x01\x92A\xcf\x01\x12\aSign inJR\n" +
+	"\x03200\x12K\n" +
+	")Token pair issued, a new session started.\x12\x1e\n" +
+	"\x1c\x1a\x1a.auth.api.v1.LoginResponseJ3\n" +
 	"\x03400\x12,\n" +
 	"\x12Validation failed.\x12\x16\n" +
 	"\x14\x1a\x12.google.rpc.StatusJ;\n" +
 	"\x03401\x124\n" +
 	"\x1aInvalid email or password.\x12\x16\n" +
-	"\x14\x1a\x12.google.rpc.Status\x82\xd3\xe4\x93\x02\x13:\x01*\"\x0e/v1/auth/login\x12\xe0\x02\n" +
-	"\aRefresh\x12\x1b.auth.api.v1.RefreshRequest\x1a\x1c.auth.api.v1.RefreshResponse\"\x99\x02\x92A\xfa\x01\x12'Exchange a refresh token for a new pairJS\n" +
-	"\x03200\x12L\n" +
-	",New token pair issued, the old one is spent.\x12\x1c\n" +
-	"\x1a\x1a\x18.auth.v1.RefreshResponseJ3\n" +
+	"\x14\x1a\x12.google.rpc.Status\x82\xd3\xe4\x93\x02\x13:\x01*\"\x0e/v1/auth/login\x12\xe4\x02\n" +
+	"\aRefresh\x12\x1b.auth.api.v1.RefreshRequest\x1a\x1c.auth.api.v1.RefreshResponse\"\x9d\x02\x92A\xfe\x01\x12'Exchange a refresh token for a new pairJW\n" +
+	"\x03200\x12P\n" +
+	",New token pair issued, the old one is spent.\x12 \n" +
+	"\x1e\x1a\x1c.auth.api.v1.RefreshResponseJ3\n" +
 	"\x03400\x12,\n" +
 	"\x12Validation failed.\x12\x16\n" +
 	"\x14\x1a\x12.google.rpc.StatusJE\n" +
 	"\x03401\x12>\n" +
 	"$Refresh token is unknown or expired.\x12\x16\n" +
-	"\x14\x1a\x12.google.rpc.Status\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/auth/refresh\x12\x90\x02\n" +
-	"\x06Logout\x12\x1a.auth.api.v1.LogoutRequest\x1a\x1b.auth.api.v1.LogoutResponse\"\xcc\x01\x92A\xae\x01\x12\x1aRevoke the current sessionJ6\n" +
-	"\x03200\x12/\n" +
-	"\x10Session revoked.\x12\x1b\n" +
-	"\x19\x1a\x17.auth.v1.LogoutResponseJJ\n" +
+	"\x14\x1a\x12.google.rpc.Status\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/auth/refresh\x12\x94\x02\n" +
+	"\x06Logout\x12\x1a.auth.api.v1.LogoutRequest\x1a\x1b.auth.api.v1.LogoutResponse\"\xd0\x01\x92A\xb2\x01\x12\x1aRevoke the current sessionJ:\n" +
+	"\x03200\x123\n" +
+	"\x10Session revoked.\x12\x1f\n" +
+	"\x1d\x1a\x1b.auth.api.v1.LogoutResponseJJ\n" +
 	"\x03401\x12C\n" +
 	")Missing, expired or invalid access token.\x12\x16\n" +
 	"\x14\x1a\x12.google.rpc.Statusb\f\n" +

@@ -1,0 +1,16 @@
+edition = "2024";
+
+package user.api.v1;
+
+import "google/protobuf/timestamp.proto";
+import option "protoc-gen-openapiv2/options/annotations.proto";
+
+// Profile is the profile for a registered user.
+message Profile {
+  string user_id = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "ID of the user the profile belongs to."
+    format: "uuid"
+  }];
+
+  google.protobuf.Timestamp created_at = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "When the user registered."}];
+}
