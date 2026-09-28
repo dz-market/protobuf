@@ -38,7 +38,7 @@
           "200": {
             "description": "The caller's profile.",
             "schema": {
-              "$ref": ".user.v1.GetMeResponse"
+              "$ref": "#/definitions/v1GetMeResponse"
             }
           },
           "401": {

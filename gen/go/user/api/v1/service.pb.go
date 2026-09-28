@@ -24,12 +24,12 @@ var File_user_api_v1_service_proto protoreflect.FileDescriptor
 
 const file_user_api_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x19user/api/v1/service.proto\x12\vuser.api.v1\x1a\x1auser/api/v1/messages.proto2\xfd\x02\n" +
-	"\x0eProfileService\x12\xc6\x02\n" +
-	"\x05GetMe\x12\x19.user.api.v1.GetMeRequest\x1a\x1a.user.api.v1.GetMeResponse\"\x85\x02\x92A\xee\x01\x12\x18Get the caller's profileJ:\n" +
-	"\x03200\x123\n" +
-	"\x15The caller's profile.\x12\x1a\n" +
-	"\x18\x1a\x16.user.v1.GetMeResponseJJ\n" +
+	"\x19user/api/v1/service.proto\x12\vuser.api.v1\x1a\x1auser/api/v1/messages.proto2\x81\x03\n" +
+	"\x0eProfileService\x12\xca\x02\n" +
+	"\x05GetMe\x12\x19.user.api.v1.GetMeRequest\x1a\x1a.user.api.v1.GetMeResponse\"\x89\x02\x92A\xf2\x01\x12\x18Get the caller's profileJ>\n" +
+	"\x03200\x127\n" +
+	"\x15The caller's profile.\x12\x1e\n" +
+	"\x1c\x1a\x1a.user.api.v1.GetMeResponseJJ\n" +
 	"\x03401\x12C\n" +
 	")Missing, expired or invalid access token.\x12\x16\n" +
 	"\x14\x1a\x12.google.rpc.StatusJ<\n" +
