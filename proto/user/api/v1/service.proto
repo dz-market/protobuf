@@ -3,7 +3,10 @@ edition = "2024";
 package user.api.v1;
 
 import "user/api/v1/messages.proto";
+import option "google/api/annotations.proto";
 
 service ProfileService {
-  rpc GetMe(GetMeRequest) returns (GetMeResponse);
+  rpc GetMe(GetMeRequest) returns (GetMeResponse) {
+    option (google.api.http) = {get: "/v1/profile"};
+  };
 }
