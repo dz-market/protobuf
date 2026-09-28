@@ -147,6 +147,7 @@ tasks:
                   pkg=$(printf '%s' "${dir#gen/openapiv2/}" | tr / .)
                   mv "$f" "$dir/$pkg.swagger.json"
                 done
+                find gen/openapiv2 -type d -empty -delete
 
     breaking:
         desc: "Check for breaking changes: task breaking [BASELINE=<git ref>]"
