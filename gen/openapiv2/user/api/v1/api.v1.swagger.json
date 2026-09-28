@@ -1,0 +1,142 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "User API",
+    "description": "User profiles.",
+    "version": "1.0",
+    "contact": {
+      "name": "dz-market",
+      "url": "https://github.com/dz-market/protobuf"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/dz-market/protobuf/blob/main/LICENSE"
+    }
+  },
+  "tags": [
+    {
+      "name": "ProfileService",
+      "description": "Profiles of registered users."
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/profile": {
+      "get": {
+        "summary": "Get the caller's profile",
+        "operationId": "ProfileService_GetMe",
+        "responses": {
+          "200": {
+            "description": "The caller's profile.",
+            "schema": {
+              "$ref": ".user.v1.GetMeResponse"
+            }
+          },
+          "401": {
+            "description": "Missing, expired or invalid access token.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "404": {
+            "description": "Profile is not created yet.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "Internal error.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ProfileService"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1GetMeResponse": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "$ref": "#/definitions/v1Profile",
+          "description": "The caller's profile."
+        }
+      },
+      "description": "GetMeResponse returns the caller's profile."
+    },
+    "v1Profile": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "ID of the user the profile belongs to."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user registered."
+        }
+      },
+      "description": "Profile is the profile for a registered user."
+    }
+  },
+  "securityDefinitions": {
+    "bearer": {
+      "type": "apiKey",
+      "description": "Access token as \"Bearer {token}\".",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "externalDocs": {
+    "description": "Contracts and source",
+    "url": "https://github.com/dz-market/protobuf"
+  }
+}
