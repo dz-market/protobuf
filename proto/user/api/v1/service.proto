@@ -70,7 +70,7 @@ service ProfileService {
         value: {
           description: "The caller's profile."
           schema: {
-            json_schema: {ref: ".user.v1.GetMeResponse"}
+            json_schema: {ref: ".user.api.v1.GetMeResponse"}
           }
         }
       }
