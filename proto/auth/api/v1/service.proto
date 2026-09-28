@@ -67,7 +67,7 @@ service AuthService {
         value: {
           description: "Account created, token pair issued."
           schema: {
-            json_schema: {ref: ".auth.v1.RegisterResponse"}
+            json_schema: {ref: ".auth.api.v1.RegisterResponse"}
           }
         }
       }
@@ -105,7 +105,7 @@ service AuthService {
         value: {
           description: "Token pair issued, a new session started."
           schema: {
-            json_schema: {ref: ".auth.v1.LoginResponse"}
+            json_schema: {ref: ".auth.api.v1.LoginResponse"}
           }
         }
       }
@@ -144,7 +144,7 @@ service AuthService {
         value: {
           description: "New token pair issued, the old one is spent."
           schema: {
-            json_schema: {ref: ".auth.v1.RefreshResponse"}
+            json_schema: {ref: ".auth.api.v1.RefreshResponse"}
           }
         }
       }
@@ -188,7 +188,7 @@ service AuthService {
         value: {
           description: "Session revoked."
           schema: {
-            json_schema: {ref: ".auth.v1.LogoutResponse"}
+            json_schema: {ref: ".auth.api.v1.LogoutResponse"}
           }
         }
       }
