@@ -144,9 +144,8 @@ tasks:
                 find gen/openapiv2 -name '*.swagger.json' ! -name 'service.swagger.json' -delete
                 find gen/openapiv2 -name 'service.swagger.json' | while read -r f; do
                   dir=${f%/*}
-                  ver=${dir##*/}
-                  pkg=${dir%/*}; pkg=${pkg##*/}
-                  mv "$f" "$dir/$pkg.$ver.swagger.json"
+                  pkg=$(printf '%s' "${dir#gen/openapiv2/}" | tr / .)
+                  mv "$f" "$dir/$pkg.swagger.json"
                 done
 
     breaking:
