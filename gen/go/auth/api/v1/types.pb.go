@@ -129,6 +129,256 @@ func (b0 Token_builder) Build() *Token {
 	return m0
 }
 
+// Jwk is a public key for verifying access tokens, in JSON Web Key format.
+type Jwk struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Kty         *string                `protobuf:"bytes,1,opt,name=kty"`
+	xxx_hidden_Use         *string                `protobuf:"bytes,2,opt,name=use"`
+	xxx_hidden_Kid         *string                `protobuf:"bytes,3,opt,name=kid"`
+	xxx_hidden_Alg         *string                `protobuf:"bytes,4,opt,name=alg"`
+	xxx_hidden_N           *string                `protobuf:"bytes,5,opt,name=n"`
+	xxx_hidden_E           *string                `protobuf:"bytes,6,opt,name=e"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *Jwk) Reset() {
+	*x = Jwk{}
+	mi := &file_auth_api_v1_types_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Jwk) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Jwk) ProtoMessage() {}
+
+func (x *Jwk) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_api_v1_types_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *Jwk) GetKty() string {
+	if x != nil {
+		if x.xxx_hidden_Kty != nil {
+			return *x.xxx_hidden_Kty
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Jwk) GetUse() string {
+	if x != nil {
+		if x.xxx_hidden_Use != nil {
+			return *x.xxx_hidden_Use
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Jwk) GetKid() string {
+	if x != nil {
+		if x.xxx_hidden_Kid != nil {
+			return *x.xxx_hidden_Kid
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Jwk) GetAlg() string {
+	if x != nil {
+		if x.xxx_hidden_Alg != nil {
+			return *x.xxx_hidden_Alg
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Jwk) GetN() string {
+	if x != nil {
+		if x.xxx_hidden_N != nil {
+			return *x.xxx_hidden_N
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Jwk) GetE() string {
+	if x != nil {
+		if x.xxx_hidden_E != nil {
+			return *x.xxx_hidden_E
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Jwk) SetKty(v string) {
+	x.xxx_hidden_Kty = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
+}
+
+func (x *Jwk) SetUse(v string) {
+	x.xxx_hidden_Use = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
+}
+
+func (x *Jwk) SetKid(v string) {
+	x.xxx_hidden_Kid = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
+}
+
+func (x *Jwk) SetAlg(v string) {
+	x.xxx_hidden_Alg = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
+}
+
+func (x *Jwk) SetN(v string) {
+	x.xxx_hidden_N = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
+}
+
+func (x *Jwk) SetE(v string) {
+	x.xxx_hidden_E = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
+}
+
+func (x *Jwk) HasKty() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *Jwk) HasUse() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *Jwk) HasKid() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *Jwk) HasAlg() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *Jwk) HasN() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
+func (x *Jwk) HasE() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
+}
+
+func (x *Jwk) ClearKty() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Kty = nil
+}
+
+func (x *Jwk) ClearUse() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Use = nil
+}
+
+func (x *Jwk) ClearKid() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Kid = nil
+}
+
+func (x *Jwk) ClearAlg() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_Alg = nil
+}
+
+func (x *Jwk) ClearN() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_N = nil
+}
+
+func (x *Jwk) ClearE() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_E = nil
+}
+
+type Jwk_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Key type.
+	Kty *string
+	// Intended use.
+	Use *string
+	// Key ID.
+	Kid *string
+	// Signing algorithm.
+	Alg *string
+	// RSA modules.
+	N *string
+	// RSA public exponent.
+	E *string
+}
+
+func (b0 Jwk_builder) Build() *Jwk {
+	m0 := &Jwk{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Kty != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_Kty = b.Kty
+	}
+	if b.Use != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		x.xxx_hidden_Use = b.Use
+	}
+	if b.Kid != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
+		x.xxx_hidden_Kid = b.Kid
+	}
+	if b.Alg != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
+		x.xxx_hidden_Alg = b.Alg
+	}
+	if b.N != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
+		x.xxx_hidden_N = b.N
+	}
+	if b.E != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_E = b.E
+	}
+	return m0
+}
+
 var File_auth_api_v1_types_proto protoreflect.FileDescriptor
 
 const file_auth_api_v1_types_proto_rawDesc = "" +
@@ -137,13 +387,21 @@ const file_auth_api_v1_types_proto_rawDesc = "" +
 	"\x05Token\x12+\n" +
 	"\x05token\x18\x01 \x01(\tB\x15\x92A\x122\x10The token value.R\x05token\x12D\n" +
 	"\n" +
-	"expires_in\x18\x02 \x01(\x05B%\x92A\"2 Seconds until the token expires.R\texpiresInB\xa3\x01\n" +
+	"expires_in\x18\x02 \x01(\x05B%\x92A\"2 Seconds until the token expires.R\texpiresIn\"i\n" +
+	"\x03Jwk\x12\x10\n" +
+	"\x03kty\x18\x01 \x01(\tR\x03kty\x12\x10\n" +
+	"\x03use\x18\x02 \x01(\tR\x03use\x12\x10\n" +
+	"\x03kid\x18\x03 \x01(\tR\x03kid\x12\x10\n" +
+	"\x03alg\x18\x04 \x01(\tR\x03alg\x12\f\n" +
+	"\x01n\x18\x05 \x01(\tR\x01n\x12\f\n" +
+	"\x01e\x18\x06 \x01(\tR\x01eB\xa3\x01\n" +
 	"\x0fcom.auth.api.v1B\n" +
 	"TypesProtoP\x01Z6github.com/dz-market/protobuf/gen/go/auth/api/v1;apiv1\xa2\x02\x03AAX\xaa\x02\vAuth.Api.V1\xca\x02\vAuth\\Api\\V1\xe2\x02\x17Auth\\Api\\V1\\GPBMetadata\xea\x02\rAuth::Api::V1b\beditionsp\xe9\az.protoc-gen-openapiv2/options/annotations.proto"
 
-var file_auth_api_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_auth_api_v1_types_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_auth_api_v1_types_proto_goTypes = []any{
 	(*Token)(nil), // 0: auth.api.v1.Token
+	(*Jwk)(nil),   // 1: auth.api.v1.Jwk
 }
 var file_auth_api_v1_types_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -164,7 +422,7 @@ func file_auth_api_v1_types_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_auth_api_v1_types_proto_rawDesc), len(file_auth_api_v1_types_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
