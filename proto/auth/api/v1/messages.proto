@@ -112,8 +112,11 @@ message LogoutRequest {}
 // LogoutResponse is returned after a successful revocation.
 message LogoutResponse {}
 
+// GetJwksRequest asks for the keys that verify access tokens.
 message GetJwksRequest {}
 
+// GetJwksResponse is A JSON Web Key Set.
 message GetJwksResponse {
+  // Keys currently used to sign access tokens.
   repeated Jwk keys = 1;
 }

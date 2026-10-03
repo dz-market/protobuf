@@ -11,11 +11,18 @@ message Token {
   int32 expires_in = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Seconds until the token expires."}];
 }
 
+// Jwk is a public key for verifying access tokens, in JSON Web Key format.
 message Jwk {
+  // Key type.
   string kty = 1;
+  // Intended use.
   string use = 2;
+  // Key ID.
   string kid = 3;
+  // Signing algorithm.
   string alg = 4;
+  // RSA modules.
   string n = 5;
+  // RSA public exponent.
   string e = 6;
 }
