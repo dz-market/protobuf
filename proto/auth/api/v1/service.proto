@@ -203,4 +203,6 @@ service AuthService {
       }
     };
   }
+
+  rpc GetJwks(GetJwksRequest) returns (GetJwksResponse);
 }

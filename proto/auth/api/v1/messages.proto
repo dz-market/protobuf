@@ -111,3 +111,9 @@ message LogoutRequest {}
 
 // LogoutResponse is returned after a successful revocation.
 message LogoutResponse {}
+
+message GetJwksRequest {}
+
+message GetJwksResponse {
+  repeated Jwk keys = 1;
+}

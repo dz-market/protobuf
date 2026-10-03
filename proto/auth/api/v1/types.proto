@@ -10,3 +10,12 @@ message Token {
 
   int32 expires_in = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Seconds until the token expires."}];
 }
+
+message Jwk {
+  string kty = 1;
+  string use = 2;
+  string kid = 3;
+  string alg = 4;
+  string n = 5;
+  string e = 6;
+}
