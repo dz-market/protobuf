@@ -203,4 +203,7 @@ service AuthService {
       }
     };
   }
+
+  // GetJwks returns the public keys that verify access tokens.
+  rpc GetJwks(GetJwksRequest) returns (GetJwksResponse);
 }

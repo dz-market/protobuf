@@ -693,6 +693,111 @@ func (b0 LogoutResponse_builder) Build() *LogoutResponse {
 	return m0
 }
 
+// GetJwksRequest asks for the keys that verify access tokens.
+type GetJwksRequest struct {
+	state         protoimpl.MessageState `protogen:"opaque.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJwksRequest) Reset() {
+	*x = GetJwksRequest{}
+	mi := &file_auth_api_v1_messages_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJwksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJwksRequest) ProtoMessage() {}
+
+func (x *GetJwksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_api_v1_messages_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+type GetJwksRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+}
+
+func (b0 GetJwksRequest_builder) Build() *GetJwksRequest {
+	m0 := &GetJwksRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	return m0
+}
+
+// GetJwksResponse is A JSON Web Key Set.
+type GetJwksResponse struct {
+	state           protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Keys *[]*Jwk                `protobuf:"bytes,1,rep,name=keys"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *GetJwksResponse) Reset() {
+	*x = GetJwksResponse{}
+	mi := &file_auth_api_v1_messages_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJwksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJwksResponse) ProtoMessage() {}
+
+func (x *GetJwksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_api_v1_messages_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *GetJwksResponse) GetKeys() []*Jwk {
+	if x != nil {
+		if x.xxx_hidden_Keys != nil {
+			return *x.xxx_hidden_Keys
+		}
+	}
+	return nil
+}
+
+func (x *GetJwksResponse) SetKeys(v []*Jwk) {
+	x.xxx_hidden_Keys = &v
+}
+
+type GetJwksResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Keys currently used to sign access tokens.
+	Keys []*Jwk
+}
+
+func (b0 GetJwksResponse_builder) Build() *GetJwksResponse {
+	m0 := &GetJwksResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_Keys = &b.Keys
+	return m0
+}
+
 var File_auth_api_v1_messages_proto protoreflect.FileDescriptor
 
 const file_auth_api_v1_messages_proto_rawDesc = "" +
@@ -723,10 +828,13 @@ const file_auth_api_v1_messages_proto_rawDesc = "" +
 	"\x06access\x18\x01 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Short-lived access token.R\x06access\x12L\n" +
 	"\arefresh\x18\x02 \x01(\v2\x12.auth.api.v1.TokenB\x1e\x92A\x1b2\x19Long-lived refresh token.R\arefresh\"\x0f\n" +
 	"\rLogoutRequest\"\x10\n" +
-	"\x0eLogoutResponseB\xa6\x01\n" +
+	"\x0eLogoutResponse\"\x10\n" +
+	"\x0eGetJwksRequest\"7\n" +
+	"\x0fGetJwksResponse\x12$\n" +
+	"\x04keys\x18\x01 \x03(\v2\x10.auth.api.v1.JwkR\x04keysB\xa6\x01\n" +
 	"\x0fcom.auth.api.v1B\rMessagesProtoP\x01Z6github.com/dz-market/protobuf/gen/go/auth/api/v1;apiv1\xa2\x02\x03AAX\xaa\x02\vAuth.Api.V1\xca\x02\vAuth\\Api\\V1\xe2\x02\x17Auth\\Api\\V1\\GPBMetadata\xea\x02\rAuth::Api::V1b\beditionsp\xe9\az\x1bbuf/validate/validate.protoz.protoc-gen-openapiv2/options/annotations.proto"
 
-var file_auth_api_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_auth_api_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_auth_api_v1_messages_proto_goTypes = []any{
 	(*RegisterRequest)(nil),  // 0: auth.api.v1.RegisterRequest
 	(*RegisterResponse)(nil), // 1: auth.api.v1.RegisterResponse
@@ -736,20 +844,24 @@ var file_auth_api_v1_messages_proto_goTypes = []any{
 	(*RefreshResponse)(nil),  // 5: auth.api.v1.RefreshResponse
 	(*LogoutRequest)(nil),    // 6: auth.api.v1.LogoutRequest
 	(*LogoutResponse)(nil),   // 7: auth.api.v1.LogoutResponse
-	(*Token)(nil),            // 8: auth.api.v1.Token
+	(*GetJwksRequest)(nil),   // 8: auth.api.v1.GetJwksRequest
+	(*GetJwksResponse)(nil),  // 9: auth.api.v1.GetJwksResponse
+	(*Token)(nil),            // 10: auth.api.v1.Token
+	(*Jwk)(nil),              // 11: auth.api.v1.Jwk
 }
 var file_auth_api_v1_messages_proto_depIdxs = []int32{
-	8, // 0: auth.api.v1.RegisterResponse.access:type_name -> auth.api.v1.Token
-	8, // 1: auth.api.v1.RegisterResponse.refresh:type_name -> auth.api.v1.Token
-	8, // 2: auth.api.v1.LoginResponse.access:type_name -> auth.api.v1.Token
-	8, // 3: auth.api.v1.LoginResponse.refresh:type_name -> auth.api.v1.Token
-	8, // 4: auth.api.v1.RefreshResponse.access:type_name -> auth.api.v1.Token
-	8, // 5: auth.api.v1.RefreshResponse.refresh:type_name -> auth.api.v1.Token
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	10, // 0: auth.api.v1.RegisterResponse.access:type_name -> auth.api.v1.Token
+	10, // 1: auth.api.v1.RegisterResponse.refresh:type_name -> auth.api.v1.Token
+	10, // 2: auth.api.v1.LoginResponse.access:type_name -> auth.api.v1.Token
+	10, // 3: auth.api.v1.LoginResponse.refresh:type_name -> auth.api.v1.Token
+	10, // 4: auth.api.v1.RefreshResponse.access:type_name -> auth.api.v1.Token
+	10, // 5: auth.api.v1.RefreshResponse.refresh:type_name -> auth.api.v1.Token
+	11, // 6: auth.api.v1.GetJwksResponse.keys:type_name -> auth.api.v1.Jwk
+	7,  // [7:7] is the sub-list for method output_type
+	7,  // [7:7] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_auth_api_v1_messages_proto_init() }
@@ -764,7 +876,7 @@ func file_auth_api_v1_messages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_auth_api_v1_messages_proto_rawDesc), len(file_auth_api_v1_messages_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
