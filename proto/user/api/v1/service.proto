@@ -10,7 +10,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
     title: "User API"
     version: "1.0"
-    description: "User profiles."
+    description: "API for managing and accessing user resources."
     contact: {
       name: "dz-market"
       url: "https://github.com/dz-market/protobuf"
@@ -50,15 +50,16 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
-// ProfileService manages user profiles.
-service ProfileService {
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {description: "Profiles of registered users."};
+// UserService provides access to authenticated user resources.
+service UserService {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {description: "Authenticated user resources."};
 
-  // GetMe returns the profile of the authenticated caller.
+  // GetMe returns the profile of the authenticated user.
   rpc GetMe(GetMeRequest) returns (GetMeResponse) {
-    option (google.api.http) = {get: "/v1/profile"};
+    option (google.api.http) = {get: "/v1/users/me"};
+
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-      summary: "Get the caller's profile"
+      summary: "Get the authenticated user's profile"
       security: {
         security_requirement: {
           key: "bearer"
@@ -68,7 +69,7 @@ service ProfileService {
       responses: {
         key: "200"
         value: {
-          description: "The caller's profile."
+          description: "The authenticated user's profile."
           schema: {
             json_schema: {ref: ".user.api.v1.GetMeResponse"}
           }
@@ -86,7 +87,7 @@ service ProfileService {
       responses: {
         key: "404"
         value: {
-          description: "Profile is not created yet."
+          description: "User profile is not created yet."
           schema: {
             json_schema: {ref: ".google.rpc.Status"}
           }

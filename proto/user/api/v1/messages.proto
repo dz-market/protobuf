@@ -5,10 +5,10 @@ package user.api.v1;
 import "user/api/v1/types.proto";
 import option "protoc-gen-openapiv2/options/annotations.proto";
 
-// GetMeRequest asks for the profile of the caller.
+// GetMeRequest requests the profile of the authenticated user.
 message GetMeRequest {}
 
-// GetMeResponse returns the caller's profile.
+// GetMeResponse contains the profile of the authenticated user.
 message GetMeResponse {
-  Profile profile = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The caller's profile."}];
+  Profile profile = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The authenticated user's profile."}];
 }
