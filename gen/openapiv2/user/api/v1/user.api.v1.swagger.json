@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "User API",
-    "description": "User profiles.",
+    "description": "API for managing and accessing user resources.",
     "version": "1.0",
     "contact": {
       "name": "dz-market",
@@ -15,8 +15,8 @@
   },
   "tags": [
     {
-      "name": "ProfileService",
-      "description": "Profiles of registered users."
+      "name": "UserService",
+      "description": "Authenticated user resources."
     }
   ],
   "schemes": [
@@ -30,13 +30,13 @@
     "application/json"
   ],
   "paths": {
-    "/v1/profile": {
+    "/v1/users/me": {
       "get": {
-        "summary": "Get the caller's profile",
-        "operationId": "ProfileService_GetMe",
+        "summary": "Get the authenticated user's profile",
+        "operationId": "UserService_GetMe",
         "responses": {
           "200": {
-            "description": "The caller's profile.",
+            "description": "The authenticated user's profile.",
             "schema": {
               "$ref": "#/definitions/v1GetMeResponse"
             }
@@ -48,7 +48,7 @@
             }
           },
           "404": {
-            "description": "Profile is not created yet.",
+            "description": "User profile is not created yet.",
             "schema": {
               "$ref": "#/definitions/rpcStatus"
             }
@@ -61,7 +61,7 @@
           }
         },
         "tags": [
-          "ProfileService"
+          "UserService"
         ],
         "security": [
           {
@@ -105,10 +105,10 @@
       "properties": {
         "profile": {
           "$ref": "#/definitions/v1Profile",
-          "description": "The caller's profile."
+          "description": "The authenticated user's profile."
         }
       },
-      "description": "GetMeResponse returns the caller's profile."
+      "description": "GetMeResponse contains the profile of the authenticated user."
     },
     "v1Profile": {
       "type": "object",
@@ -124,7 +124,7 @@
           "description": "When the user registered."
         }
       },
-      "description": "Profile is the profile for a registered user."
+      "description": "Profile contains profile data for a registered user."
     }
   },
   "securityDefinitions": {

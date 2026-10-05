@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// GetMeRequest asks for the profile of the caller.
+// GetMeRequest requests the profile of the authenticated user.
 type GetMeRequest struct {
 	state         protoimpl.MessageState `protogen:"opaque.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -64,7 +64,7 @@ func (b0 GetMeRequest_builder) Build() *GetMeRequest {
 	return m0
 }
 
-// GetMeResponse returns the caller's profile.
+// GetMeResponse contains the profile of the authenticated user.
 type GetMeResponse struct {
 	state              protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Profile *Profile               `protobuf:"bytes,1,opt,name=profile"`
@@ -138,9 +138,9 @@ var File_user_api_v1_messages_proto protoreflect.FileDescriptor
 const file_user_api_v1_messages_proto_rawDesc = "" +
 	"\n" +
 	"\x1auser/api/v1/messages.proto\x12\vuser.api.v1\x1a\x17user/api/v1/types.proto\"\x0e\n" +
-	"\fGetMeRequest\"[\n" +
-	"\rGetMeResponse\x12J\n" +
-	"\aprofile\x18\x01 \x01(\v2\x14.user.api.v1.ProfileB\x1a\x92A\x172\x15The caller's profile.R\aprofileB\xa6\x01\n" +
+	"\fGetMeRequest\"g\n" +
+	"\rGetMeResponse\x12V\n" +
+	"\aprofile\x18\x01 \x01(\v2\x14.user.api.v1.ProfileB&\x92A#2!The authenticated user's profile.R\aprofileB\xa6\x01\n" +
 	"\x0fcom.user.api.v1B\rMessagesProtoP\x01Z6github.com/dz-market/protobuf/gen/go/user/api/v1;apiv1\xa2\x02\x03UAX\xaa\x02\vUser.Api.V1\xca\x02\vUser\\Api\\V1\xe2\x02\x17User\\Api\\V1\\GPBMetadata\xea\x02\rUser::Api::V1b\beditionsp\xe9\az.protoc-gen-openapiv2/options/annotations.proto"
 
 var file_user_api_v1_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 2)

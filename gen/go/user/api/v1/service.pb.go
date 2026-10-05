@@ -24,23 +24,23 @@ var File_user_api_v1_service_proto protoreflect.FileDescriptor
 
 const file_user_api_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x19user/api/v1/service.proto\x12\vuser.api.v1\x1a\x1auser/api/v1/messages.proto2\x81\x03\n" +
-	"\x0eProfileService\x12\xca\x02\n" +
-	"\x05GetMe\x12\x19.user.api.v1.GetMeRequest\x1a\x1a.user.api.v1.GetMeResponse\"\x89\x02\x92A\xf2\x01\x12\x18Get the caller's profileJ>\n" +
-	"\x03200\x127\n" +
-	"\x15The caller's profile.\x12\x1e\n" +
+	"\x19user/api/v1/service.proto\x12\vuser.api.v1\x1a\x1auser/api/v1/messages.proto2\x9c\x03\n" +
+	"\vUserService\x12\xe8\x02\n" +
+	"\x05GetMe\x12\x19.user.api.v1.GetMeRequest\x1a\x1a.user.api.v1.GetMeResponse\"\xa7\x02\x92A\x8f\x02\x12$Get the authenticated user's profileJJ\n" +
+	"\x03200\x12C\n" +
+	"!The authenticated user's profile.\x12\x1e\n" +
 	"\x1c\x1a\x1a.user.api.v1.GetMeResponseJJ\n" +
 	"\x03401\x12C\n" +
 	")Missing, expired or invalid access token.\x12\x16\n" +
-	"\x14\x1a\x12.google.rpc.StatusJ<\n" +
-	"\x03404\x125\n" +
-	"\x1bProfile is not created yet.\x12\x16\n" +
+	"\x14\x1a\x12.google.rpc.StatusJA\n" +
+	"\x03404\x12:\n" +
+	" User profile is not created yet.\x12\x16\n" +
 	"\x14\x1a\x12.google.rpc.Statusb\f\n" +
 	"\n" +
 	"\n" +
-	"\x06bearer\x12\x00\x82\xd3\xe4\x93\x02\r\x12\v/v1/profile\x1a\"\x92A\x1f\x12\x1dProfiles of registered users.B\x9c\x04\n" +
-	"\x0fcom.user.api.v1B\fServiceProtoP\x01Z6github.com/dz-market/protobuf/gen/go/user/api/v1;apiv1\xa2\x02\x03UAX\xaa\x02\vUser.Api.V1\xca\x02\vUser\\Api\\V1\xe2\x02\x17User\\Api\\V1\\GPBMetadata\xea\x02\rUser::Api::V1\x92A\xf3\x02\x12\x93\x01\n" +
-	"\bUser API\x12\x0eUser profiles.\"2\n" +
+	"\x06bearer\x12\x00\x82\xd3\xe4\x93\x02\x0e\x12\f/v1/users/me\x1a\"\x92A\x1f\x12\x1dAuthenticated user resources.B\xbc\x04\n" +
+	"\x0fcom.user.api.v1B\fServiceProtoP\x01Z6github.com/dz-market/protobuf/gen/go/user/api/v1;apiv1\xa2\x02\x03UAX\xaa\x02\vUser.Api.V1\xca\x02\vUser\\Api\\V1\xe2\x02\x17User\\Api\\V1\\GPBMetadata\xea\x02\rUser::Api::V1\x92A\x93\x03\x12\xb3\x01\n" +
+	"\bUser API\x12.API for managing and accessing user resources.\"2\n" +
 	"\tdz-market\x12%https://github.com/dz-market/protobuf*>\n" +
 	"\x03MIT\x127https://github.com/dz-market/protobuf/blob/main/LICENSE2\x031.0*\x02\x01\x022\x10application/json:\x10application/jsonR0\n" +
 	"\x03500\x12)\n" +
@@ -55,8 +55,8 @@ var file_user_api_v1_service_proto_goTypes = []any{
 	(*GetMeResponse)(nil), // 1: user.api.v1.GetMeResponse
 }
 var file_user_api_v1_service_proto_depIdxs = []int32{
-	0, // 0: user.api.v1.ProfileService.GetMe:input_type -> user.api.v1.GetMeRequest
-	1, // 1: user.api.v1.ProfileService.GetMe:output_type -> user.api.v1.GetMeResponse
+	0, // 0: user.api.v1.UserService.GetMe:input_type -> user.api.v1.GetMeRequest
+	1, // 1: user.api.v1.UserService.GetMe:output_type -> user.api.v1.GetMeResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
