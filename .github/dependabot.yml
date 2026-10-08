@@ -11,8 +11,6 @@ updates:
         ignore:
             -   dependency-name: google.golang.org/grpc
                 versions: [ "1.84.0" ]
-            -   dependency-name: github.com/grpc-ecosystem/grpc-gateway/v2
-                versions: ["2.31.0"]
         commit-message:
             prefix: build
             include: scope

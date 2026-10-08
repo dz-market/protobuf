@@ -13,6 +13,9 @@ vars:
     THIRD_PARTY_DIR: "{{.ROOT_DIR}}/third_party"
     MODULE: "proto"
 
+    DESCRIPTOR_DIR: "{{.ROOT_DIR}}/gen/descriptor"
+    DESCRIPTOR: "{{.DESCRIPTOR_DIR}}/marketplace.binpb"
+
 tasks:
     tools:
         desc: Install buf and protoc plugin into ./bin
@@ -35,12 +38,6 @@ tasks:
                   NAME: protoc-gen-go-grpc,
                   VERSION: "{{.PROTOC_GEN_GO_GRPC_VERSION}}",
                   PKG: "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
-              }
-            - task: tools:install
-              vars: {
-                  NAME: protoc-gen-grpc-gateway,
-                  VERSION: "{{.GRPC_GATEWAY_VERSION}}",
-                  PKG: "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway"
               }
             - task: tools:install
               vars: {
@@ -121,11 +118,22 @@ tasks:
         cmds:
             - "{{.BUF}} lint {{.MODULE}}"
 
+    gen:descriptor:
+        internal: true
+        cmds:
+            - mkdir -p "{{.DESCRIPTOR_DIR}}"
+            - >-
+                {{.BUF}} build {{.MODULE}}
+                --as-file-descriptor-set
+                --exclude-source-info
+                -o "{{.DESCRIPTOR}}"
+
     gen:code:
         internal: true
         cmds:
             - "{{.BUF}} generate {{.MODULE}}"
             - task: swagger:normalize
+            - task: gen:descriptor
 
     gen:
         desc: Format, lint and regenerate all code
