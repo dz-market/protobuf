@@ -24,8 +24,7 @@ var File_auth_api_v1_service_proto protoreflect.FileDescriptor
 
 const file_auth_api_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x19auth/api/v1/service.proto\x12\vauth.api.v1\x1a\x1aauth/api/v1/messages.proto2\xf3\n" +
-	"\n" +
+	"\x19auth/api/v1/service.proto\x12\vauth.api.v1\x1a\x1aauth/api/v1/messages.proto2\x93\v\n" +
 	"\vAuthService\x12\xc7\x02\n" +
 	"\bRegister\x12\x1c.auth.api.v1.RegisterRequest\x1a\x1d.auth.api.v1.RegisterResponse\"\xfd\x01\x92A\xdd\x01\x12\x16Register a new accountJO\n" +
 	"\x03201\x12H\n" +
@@ -66,8 +65,8 @@ const file_auth_api_v1_service_proto_rawDesc = "" +
 	"\x14\x1a\x12.google.rpc.Statusb\f\n" +
 	"\n" +
 	"\n" +
-	"\x06bearer\x12\x00\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/logout\x12D\n" +
-	"\aGetJwks\x12\x1b.auth.api.v1.GetJwksRequest\x1a\x1c.auth.api.v1.GetJwksResponse\x1a&\x92A#\x12!Credentials, tokens and sessions.B\xb4\x04\n" +
+	"\x06bearer\x12\x00\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/logout\x12d\n" +
+	"\aGetJwks\x12\x1b.auth.api.v1.GetJwksRequest\x1a\x1c.auth.api.v1.GetJwksResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/.well-known/jwks.json\x1a&\x92A#\x12!Credentials, tokens and sessions.B\xb4\x04\n" +
 	"\x0fcom.auth.api.v1B\fServiceProtoP\x01Z6github.com/dz-market/protobuf/gen/go/auth/api/v1;apiv1\xa2\x02\x03AAX\xaa\x02\vAuth.Api.V1\xca\x02\vAuth\\Api\\V1\xe2\x02\x17Auth\\Api\\V1\\GPBMetadata\xea\x02\rAuth::Api::V1\x92A\x8b\x03\x12\xab\x01\n" +
 	"\bAuth API\x12&Authentication and session management.\"2\n" +
 	"\tdz-market\x12%https://github.com/dz-market/protobuf*>\n" +

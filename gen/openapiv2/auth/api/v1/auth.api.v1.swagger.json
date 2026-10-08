@@ -30,6 +30,23 @@
     "application/json"
   ],
   "paths": {
+    "/.well-known/jwks.json": {
+      "get": {
+        "summary": "GetJwks returns the public keys that verify access tokens.",
+        "operationId": "AuthService_GetJwks",
+        "responses": {
+          "500": {
+            "description": "Internal error.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
     "/v1/auth/login": {
       "post": {
         "summary": "Sign in",
@@ -242,6 +259,50 @@
           }
         }
       }
+    },
+    "v1GetJwksResponse": {
+      "type": "object",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1Jwk"
+          },
+          "description": "Keys currently used to sign access tokens."
+        }
+      },
+      "description": "GetJwksResponse is A JSON Web Key Set."
+    },
+    "v1Jwk": {
+      "type": "object",
+      "properties": {
+        "kty": {
+          "type": "string",
+          "description": "Key type."
+        },
+        "use": {
+          "type": "string",
+          "description": "Intended use."
+        },
+        "kid": {
+          "type": "string",
+          "description": "Key ID."
+        },
+        "alg": {
+          "type": "string",
+          "description": "Signing algorithm."
+        },
+        "n": {
+          "type": "string",
+          "description": "RSA modules."
+        },
+        "e": {
+          "type": "string",
+          "description": "RSA public exponent."
+        }
+      },
+      "description": "Jwk is a public key for verifying access tokens, in JSON Web Key format."
     },
     "v1LoginRequest": {
       "type": "object",
