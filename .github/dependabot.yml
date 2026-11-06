@@ -5,12 +5,16 @@ updates:
         directory: /
         schedule:
             interval: weekly
+
         groups:
-            go-dependencies:
-                patterns: [ "*" ]
-        ignore:
-            -   dependency-name: google.golang.org/grpc
-                versions: [ "1.84.0" ]
+            go-patch:
+                patterns: ["*"]
+                update-types: ["patch"]
+
+            go-minor:
+                patterns: ["*"]
+                update-types: ["minor"]
+
         commit-message:
             prefix: build
             include: scope
@@ -18,7 +22,17 @@ updates:
     -   package-ecosystem: github-actions
         directory: /
         schedule:
-            interval: monthly
+            interval: weekly
+
+        groups:
+            actions-patch:
+                patterns: ["*"]
+                update-types: ["patch"]
+
+            actions-minor:
+                patterns: ["*"]
+                update-types: ["minor"]
+
         commit-message:
             prefix: ci
             include: scope
