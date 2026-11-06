@@ -21,30 +21,29 @@ tasks:
         desc: Install buf and protoc plugin into ./bin
         run: once
         cmds:
-            - task: tools:install
-              vars: {
-                  NAME: buf,
-                  VERSION: "{{.BUF_VERSION}}",
-                  PKG: "github.com/bufbuild/buf/cmd/buf"
-              }
-            - task: tools:install
-              vars: {
-                  NAME: protoc-gen-go,
-                  VERSION: "{{.PROTOC_GEN_GO_VERSION}}",
-                  PKG: "google.golang.org/protobuf/cmd/protoc-gen-go"
-              }
-            - task: tools:install
-              vars: {
-                  NAME: protoc-gen-go-grpc,
-                  VERSION: "{{.PROTOC_GEN_GO_GRPC_VERSION}}",
-                  PKG: "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
-              }
-            - task: tools:install
-              vars: {
-                  NAME: protoc-gen-openapiv2,
-                  VERSION: "{{.GRPC_GATEWAY_VERSION}}",
-                  PKG: "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"
-              }
+            -   task: tools:install
+                vars:
+                    NAME: buf
+                    VERSION: "{{.BUF_VERSION}}"
+                    PKG: "github.com/bufbuild/buf/cmd/buf"
+
+            -   task: tools:install
+                vars:
+                    NAME: protoc-gen-go
+                    VERSION: "{{.PROTOC_GEN_GO_VERSION}}"
+                    PKG: "google.golang.org/protobuf/cmd/protoc-gen-go"
+
+            -   task: tools:install
+                vars:
+                    NAME: protoc-gen-go-grpc
+                    VERSION: "{{.PROTOC_GEN_GO_GRPC_VERSION}}"
+                    PKG: "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+
+            -   task: tools:install
+                vars:
+                    NAME: protoc-gen-openapiv2
+                    VERSION: "{{.GRPC_GATEWAY_VERSION}}"
+                    PKG: "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"
 
     tools:install:
         internal: true
@@ -52,26 +51,42 @@ tasks:
         requires:
             vars: [NAME, VERSION, PKG]
         status:
-            - test -x {{.BIN_DIR}}/{{.NAME}}
-            - test -f {{.BIN_DIR}}/.{{.NAME}}.version
-            - grep -qxF {{.VERSION}} {{.BIN_DIR}}/.{{.NAME}}.version
+            - test -x "{{.BIN_DIR}}/{{.NAME}}"
+            - test -f "{{.BIN_DIR}}/.{{.NAME}}.version"
+            - grep -qxF "{{.VERSION}}" "{{.BIN_DIR}}/.{{.NAME}}.version"
         cmds:
-            - mkdir -p {{.BIN_DIR}}
-            - GOBIN={{.BIN_DIR}} go install {{.PKG}}@{{.VERSION}}
-            - echo {{.VERSION}} > {{.BIN_DIR}}/.{{.NAME}}.version
+            - mkdir -p "{{.BIN_DIR}}"
+            - GOBIN="{{.BIN_DIR}}" go install "{{.PKG}}@{{.VERSION}}"
+            - printf '%s\n' "{{.VERSION}}" > "{{.BIN_DIR}}/.{{.NAME}}.version"
 
     vendor:
-        desc: Vendor third-party protos into ./third_party
+        desc: Download missing or outdated third-party schemas
         run: once
         status:
-            - test -f {{.THIRD_PARTY_DIR}}/.versions
-            - grep -qxF "{{.GOOGLEAPIS_COMMIT}} {{.PROTOVALIDATE_VERSION}} {{.GRPC_GATEWAY_VERSION}}" {{.THIRD_PARTY_DIR}}/.versions
+            - test -f "{{.THIRD_PARTY_DIR}}/.versions"
+            - >-
+                grep -qxF
+                "{{.GOOGLEAPIS_COMMIT}} {{.PROTOVALIDATE_VERSION}} {{.GRPC_GATEWAY_VERSION}}"
+                "{{.THIRD_PARTY_DIR}}/.versions"
+            - |
+                for file in \
+                  google/api/annotations.proto \
+                  google/api/http.proto \
+                  buf/validate/validate.proto \
+                  protoc-gen-openapiv2/options/annotations.proto \
+                  protoc-gen-openapiv2/options/openapiv2.proto
+                do
+                  test -s "{{.THIRD_PARTY_DIR}}/$file" || exit 1
+                done
         cmds:
-            - rm -rf {{.THIRD_PARTY_DIR}}
-            - task: vendor:googleapis
-            - task: vendor:protovalidate
-            - task: vendor:openapiv2
-            - echo {{.GOOGLEAPIS_COMMIT}} {{.PROTOVALIDATE_VERSION}} {{.GRPC_GATEWAY_VERSION}} > {{.THIRD_PARTY_DIR}}/.versions
+            - rm -rf "{{.THIRD_PARTY_DIR}}"
+            -   task: vendor:googleapis
+            -   task: vendor:protovalidate
+            -   task: vendor:openapiv2
+            - >-
+                printf '%s\n'
+                "{{.GOOGLEAPIS_COMMIT}} {{.PROTOVALIDATE_VERSION}} {{.GRPC_GATEWAY_VERSION}}"
+                > {{.THIRD_PARTY_DIR}}/.versions
 
     vendor:googleapis:
         internal: true
@@ -79,11 +94,11 @@ tasks:
             FILES: "annotations.proto http.proto"
         cmds:
             - mkdir -p "{{.THIRD_PARTY_DIR}}/google/api"
-            - for: {var: FILES}
-              cmd: >-
-                  curl -fsSL --retry 3
-                  -o "{{.THIRD_PARTY_DIR}}/google/api/{{.ITEM}}"
-                  "https://raw.githubusercontent.com/googleapis/googleapis/{{.GOOGLEAPIS_COMMIT}}/google/api/{{.ITEM}}"
+            -   for: {var: FILES}
+                cmd: >-
+                    curl -fsSL --retry 3
+                    -o "{{.THIRD_PARTY_DIR}}/google/api/{{.ITEM}}"
+                    "https://raw.githubusercontent.com/googleapis/googleapis/{{.GOOGLEAPIS_COMMIT}}/google/api/{{.ITEM}}"
 
     vendor:protovalidate:
         internal: true
@@ -100,11 +115,11 @@ tasks:
             FILES: "annotations.proto openapiv2.proto"
         cmds:
             - mkdir -p "{{.THIRD_PARTY_DIR}}/protoc-gen-openapiv2/options"
-            - for: {var: FILES}
-              cmd: >-
-                  curl -fsSL --retry 3
-                  -o "{{.THIRD_PARTY_DIR}}/protoc-gen-openapiv2/options/{{.ITEM}}"
-                  "https://raw.githubusercontent.com/grpc-ecosystem/grpc-gateway/{{.GRPC_GATEWAY_VERSION}}/protoc-gen-openapiv2/options/{{.ITEM}}"
+            -   for: {var: FILES}
+                cmd: >-
+                    curl -fsSL --retry 3
+                    -o "{{.THIRD_PARTY_DIR}}/protoc-gen-openapiv2/options/{{.ITEM}}"
+                    "https://raw.githubusercontent.com/grpc-ecosystem/grpc-gateway/{{.GRPC_GATEWAY_VERSION}}/protoc-gen-openapiv2/options/{{.ITEM}}"
 
     format:
         desc: Format proto files
@@ -117,6 +132,15 @@ tasks:
         deps: [tools, vendor]
         cmds:
             - "{{.BUF}} lint {{.MODULE}}"
+
+    gen:
+        desc: Format, lint and regenerate all code
+        deps: [tools, vendor]
+        cmds:
+            -   task: format
+            -   task: lint
+            -   task: gen:code
+            - go mod tidy
 
     gen:descriptor:
         internal: true
@@ -132,29 +156,23 @@ tasks:
         internal: true
         cmds:
             - "{{.BUF}} generate {{.MODULE}}"
-            - task: swagger:normalize
-            - task: gen:descriptor
-
-    gen:
-        desc: Format, lint and regenerate all code
-        deps: [tools, vendor]
-        cmds:
-            - task: format
-            - task: lint
-            - task: gen:code
-            - go mod tidy
+            -   task: swagger:normalize
+            -   task: gen:descriptor
 
     swagger:normalize:
         internal: true
         cmds:
             - |
                 test -d gen/openapiv2 || exit 0
+                
                 find gen/openapiv2 -name '*.swagger.json' ! -name 'service.swagger.json' -delete
+                
                 find gen/openapiv2 -name 'service.swagger.json' | while read -r f; do
                   dir=${f%/*}
                   pkg=$(printf '%s' "${dir#gen/openapiv2/}" | tr / .)
                   mv "$f" "$dir/$pkg.swagger.json"
                 done
+                
                 find gen/openapiv2 -type d -empty -delete
 
     breaking:
@@ -163,20 +181,31 @@ tasks:
         vars:
             BASELINE: '{{.BASELINE | default "origin/main"}}'
         cmds:
-            - "{{.BUF}} breaking --against .git#ref={{.BASELINE}}"
+            - |
+                set -o pipefail
+                git show "{{.BASELINE}}:gen/descriptor/marketplace.binpb" |
+                    "{{.BUF}}" breaking "{{.MODULE}}" \
+                    --against '-#format=binpb' \
+                    --exclude-imports
 
     verify:
-        desc: Ensure formatting, generated code and go.mod all match the sources
+        desc: Check formatting, generated code and go packages
         deps: [tools, vendor]
         cmds:
             - "{{.BUF}} format --diff --exit-code {{.MODULE}}"
-            - task: lint
-            - task: gen:code
+            -   task: lint
+            -   task: gen:code
             - go mod tidy -diff
-            - git add -A -N gen third_party
-            - git diff --exit-code -- gen third_party
+            - go build ./...
+            -   task: gen:check
+
+    gen:check:
+        internal: true
+        cmds:
+            - git diff --exit-code -- gen
+            - test -z "$(git ls-files --others --exclude-standard -- gen)"
 
     clean:
         desc: Remove installed tools and generated code
         cmds:
-            - rm -rf {{.BIN_DIR}} gen
+            - rm -rf "{{.BIN_DIR}}" "{{.THIRD_PARTY_DIR}}" gen

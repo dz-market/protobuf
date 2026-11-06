@@ -20,7 +20,8 @@ profile.cov
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-bin/
+/bin/
+/third_party/
 
 # Go workspace file
 go.work
