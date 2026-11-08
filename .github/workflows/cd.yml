@@ -1,0 +1,21 @@
+name: CD
+
+on:
+    push:
+        tags: ["v*.*.*"]
+
+permissions:
+    contents: read
+    packages: write
+
+concurrency:
+    group: descriptor-publish
+    cancel-in-progress: false
+
+jobs:
+    publish:
+        name: Publish descriptor
+        uses: dz-market/github-actions/.github/workflows/docker-publish.yml@v1
+        with:
+            target: descriptor
+            platforms: linux/amd64,linux/arm64

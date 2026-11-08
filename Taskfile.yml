@@ -152,6 +152,16 @@ tasks:
                 --exclude-source-info
                 -o "{{.DESCRIPTOR}}"
 
+    gen:descriptor:image:
+        desc: "Generate contracts and build a local descriptor image"
+        cmds:
+            -   task: gen
+            - >-
+                docker build
+                --target descriptor
+                --tag marketplace-protobuf:local
+                {{.ROOT_DIR | shellQuote}}
+
     gen:code:
         internal: true
         cmds:
